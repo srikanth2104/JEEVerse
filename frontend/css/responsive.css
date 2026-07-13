@@ -2,4 +2,20 @@
     .nav-links {
         display: none;
     }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .hero p{
+        font-size: 1.1rem;
+    }
+
+    .hero {
+        padding: 80px 20px;
+    }
 }
