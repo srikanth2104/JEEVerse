@@ -32,19 +32,19 @@ function renderChapters(chapters) {
 
     const card = document.createElement("div");
     card.className = "chapter-card";
+card.innerHTML = `
+    <h3>${chapter.name}</h3>
 
-    card.innerHTML = `
-            <h3>${chapter.name}</h3>
-            <div class="chapter-meta">
-                <p>⭐ Weightage ${"★".repeat(chapter.weightage)}</p>
-                <p>📈 Difficulty ${"★".repeat(chapter.difficulty)}</p>
-                <p>⏱ ${chapter.estimatedHours} Hours</p>
-            </div>
-            <a href="chapter.html?id=${chapter.slug}" class="btn btn-primary">
-                Study
-            </a>
-        `;
+    <div class="chapter-meta">
+      <p>⭐ Weightage ${"★".repeat(chapter.weightage)}</p>
+      <p>📈 Difficulty ${"★".repeat(chapter.difficulty)}</p>
+      <p>⏱ ${chapter.estimatedHours} Hours</p>
+    </div>
 
+    <a href="chapter.html?subject=physics&id=${chapter.slug}" class="btn btn-primary">
+      Study
+    </a>
+    `;
     grid.appendChild(card);
   });
 

@@ -1,32 +1,39 @@
 {
   "title": "Kinematics",
-
   "subject": "Physics",
-
   "unit": "Mechanics",
 
+  "difficulty": 3,
+  "weightage": 5,
   "estimatedHours": 4,
 
-  "difficulty": 3,
-
-  "weightage": 5,
-
-  "overview": "Study of motion without considering forces.",
+  "overview": "Kinematics is the branch of mechanics that describes the motion of objects without considering the forces causing the motion.",
 
   "concepts": [
     "Distance & Displacement",
     "Speed & Velocity",
     "Acceleration",
-    "Graphs",
     "Projectile Motion",
     "Relative Motion"
   ],
 
-  "formulas": ["v=u+at", "s=ut+1/2at²", "v²=u²+2as"],
+  "formulas": [
+    "v = u + at",
+    "s = ut + ½at²",
+    "v² = u² + 2as",
+    "R = u² sin2θ / g"
+  ],
 
-  "memoryTips": ["SUVAT equations", "Always draw diagrams"],
+  "memoryTips": [
+    "Remember the SUVAT equations together.",
+    "Projectile motion = Horizontal + Vertical motion."
+  ],
 
-  "mistakes": ["Mixing scalar & vector", "Ignoring sign convention"],
+  "mistakes": [
+    "Confusing distance with displacement.",
+    "Ignoring sign convention.",
+    "Using wrong units."
+  ],
 
-  "pyq": ["Projectile Motion", "Graphs", "Relative Velocity"]
+  "pyqTopics": ["Projectile Motion", "Relative Velocity", "Motion Graphs"]
 }
