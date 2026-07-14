@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "slug": "units-dimensions",
+    "name": "Units & Dimensions",
+    "unit": "Mechanics",
+    "difficulty": 2,
+    "weightage": 3,
+    "estimatedHours": 2
+  },
+  {
+    "id": 2,
+    "slug": "kinematics",
+    "name": "Kinematics",
+    "unit": "Mechanics",
+    "difficulty": 3,
+    "weightage": 5,
+    "estimatedHours": 4
+  },
+  {
+    "id": 3,
+    "slug": "laws-of-motion",
+    "name": "Laws of Motion",
+    "unit": "Mechanics",
+    "difficulty": 4,
+    "weightage": 5,
+    "estimatedHours": 5
+  },
+  {
+    "id": 4,
+    "slug": "work-power-energy",
+    "name": "Work, Power & Energy",
+    "unit": "Mechanics",
+    "difficulty": 3,
+    "weightage": 4,
+    "estimatedHours": 4
+  },
+  {
+    "id": 5,
+    "slug": "rotational-motion",
+    "name": "Rotational Motion",
+    "unit": "Mechanics",
+    "difficulty": 5,
+    "weightage": 5,
+    "estimatedHours": 6
+  },
+  {
+    "id": 6,
+    "slug": "gravitation",
+    "name": "Gravitation",
+    "unit": "Mechanics",
+    "difficulty": 3,
+    "weightage": 4,
+    "estimatedHours": 3
+  }
+]

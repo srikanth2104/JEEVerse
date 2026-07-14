@@ -1,0 +1,32 @@
+{
+  "title": "Kinematics",
+
+  "subject": "Physics",
+
+  "unit": "Mechanics",
+
+  "estimatedHours": 4,
+
+  "difficulty": 3,
+
+  "weightage": 5,
+
+  "overview": "Study of motion without considering forces.",
+
+  "concepts": [
+    "Distance & Displacement",
+    "Speed & Velocity",
+    "Acceleration",
+    "Graphs",
+    "Projectile Motion",
+    "Relative Motion"
+  ],
+
+  "formulas": ["v=u+at", "s=ut+1/2at²", "v²=u²+2as"],
+
+  "memoryTips": ["SUVAT equations", "Always draw diagrams"],
+
+  "mistakes": ["Mixing scalar & vector", "Ignoring sign convention"],
+
+  "pyq": ["Projectile Motion", "Graphs", "Relative Velocity"]
+}

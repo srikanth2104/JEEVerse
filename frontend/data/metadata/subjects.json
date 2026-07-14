@@ -1,0 +1,23 @@
+[
+  {
+    "id": "physics",
+    "title": "Physics",
+    "icon": "📘",
+    "chapters": 29,
+    "topics": ["Mechanics", "Electricity", "Optics", "Modern Physics"]
+  },
+  {
+    "id": "chemistry",
+    "title": "Chemistry",
+    "icon": "🧪",
+    "chapters": 31,
+    "topics": ["Physical", "Organic", "Inorganic"]
+  },
+  {
+    "id": "mathematics",
+    "title": "Mathematics",
+    "icon": "📐",
+    "chapters": 16,
+    "topics": ["Algebra", "Calculus", "Coordinate Geometry"]
+  }
+]

@@ -1,0 +1,6 @@
+- Use semantic HTML.
+- Use CSS variables instead of hardcoded colors.
+- Keep functions under ~30 lines when practical.
+- Reuse components whenever possible.
+- Name files clearly.
+- Comment only when it adds value.
