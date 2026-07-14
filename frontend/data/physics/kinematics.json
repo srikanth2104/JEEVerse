@@ -2,18 +2,17 @@
   "title": "Kinematics",
   "subject": "Physics",
   "unit": "Mechanics",
-
   "difficulty": 3,
   "weightage": 5,
   "estimatedHours": 4,
 
-  "overview": "Kinematics is the branch of mechanics that describes the motion of objects without considering the forces causing the motion.",
+  "overview": "Kinematics studies the motion of objects without considering the forces causing the motion. It forms the foundation of Mechanics and is one of the highest weightage chapters in JEE Main.",
 
   "concepts": [
-    "Distance & Displacement",
-    "Speed & Velocity",
+    "Distance and Displacement",
+    "Speed and Velocity",
     "Acceleration",
-    "Projectile Motion",
+    "Equations of Motion",
     "Relative Motion"
   ],
 
@@ -21,19 +20,31 @@
     "v = u + at",
     "s = ut + ½at²",
     "v² = u² + 2as",
-    "R = u² sin2θ / g"
+    "Average Velocity = Total Displacement / Total Time"
   ],
-
-  "memoryTips": [
-    "Remember the SUVAT equations together.",
-    "Projectile motion = Horizontal + Vertical motion."
+  "notes": [
+    {
+      "title": "Definition",
+      "content": "Kinematics is the branch of mechanics that describes the motion of objects without considering the forces responsible for the motion."
+    },
+    {
+      "title": "Important Point",
+      "content": "Displacement is a vector quantity while distance is a scalar quantity."
+    },
+    {
+      "title": "JEE Tip",
+      "content": "Relative motion and graphical interpretation of motion are frequently asked in JEE Main and Advanced."
+    }
   ],
-
-  "mistakes": [
-    "Confusing distance with displacement.",
-    "Ignoring sign convention.",
-    "Using wrong units."
-  ],
-
-  "pyqTopics": ["Projectile Motion", "Relative Velocity", "Motion Graphs"]
+  "pyq": {
+    "totalQuestions": 42,
+    "averagePerYear": 2,
+    "last5Years": [2, 3, 1, 2, 2],
+    "importantTopics": [
+      "Relative Motion",
+      "Graphs",
+      "Equations of Motion",
+      "Projectile Motion"
+    ]
+  }
 }
