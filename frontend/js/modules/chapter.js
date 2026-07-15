@@ -6,8 +6,8 @@ async function loadChapter() {
         const subject = params.get("subject");
         const chapterId = params.get("id");
 
-        console.log("Subject :",subject);
-        console.log("Chapter: ",chapterId);
+        //console.log("Subject :",subject);
+        //console.log("Chapter: ",chapterId);
 
         const response = await fetch(`../data/${subject}/${chapterId}.json`);
 
@@ -16,7 +16,11 @@ async function loadChapter() {
         }
         const chapter = await response.json();
     
-        console.log(chapter);
+        //console.log(chapter);
+
+        const main = document.getElementById("mainContent");
+        main.innerHTML = "";
+
         renderHeader(chapter);
         renderOverview(chapter);
         renderConcepts(chapter);
@@ -50,12 +54,23 @@ function renderConcepts(chapter) {
     const main = document.getElementById("mainContent");
 
     let html = "";
-    (chapter.concepts || []).forEach(concept => {
+
+    if (!chapter.concepts?.length) {
+      main.innerHTML += `
+            <section id="conceptSection" class="content-card">
+                <h2>🧠 Key Concepts</h2>
+                <p>Key Concepts will be added soon.</p>
+            </section>
+        `;
+      return;
+    }
+
+    chapter.concepts.forEach(concept => {
         html += `<li>${concept}</li>`;
     });
 
     main.innerHTML += `
-        <section class="content-card">
+        <section id="conceptSection" class="content-card">
             <h2>🧠 Key Concepts</h2>
             <ul>${html}</ul>
         </section>
@@ -66,14 +81,25 @@ function renderFormulas(chapter) {
     const main = document.getElementById("mainContent");
 
     let html = "";
-    (chapter.formulas || []).forEach(formula => {
+
+    if (!chapter.formulas?.length) {
+      main.innerHTML += `
+            <section id="formulaSection" class="content-card">
+                <h2>📐 Formula Sheet</h2>
+                <p>Formulas will be added soon.</p>
+            </section>
+        `;
+      return;
+    }
+
+    chapter.formulasforEach(formula => {
         html += `
             <div class="formula-box">${formula}</div>
         `;
     });
 
     main.innerHTML += `
-        <section class="content-card">
+        <section id="formulaSection" class="content-card">
             <h2>📐 Formula Sheet</h2>
             ${html}
         </section>
@@ -85,7 +111,17 @@ function renderNotes(chapter) {
 
     let html = "";
 
-    (chapter.notes || []).forEach(note => {
+    if (!chapter.notes?.length) {
+        main.innerHTML += `
+            <section id="notesSection" class="content-card">
+                <h2>📝 Smart Revision Notes</h2>
+                <p>Notes will be added soon.</p>
+            </section>
+        `;
+        return;
+    }
+
+    chapter.notesforEach(note => {
         html += `
             <div class="note-card">
                 <h3>${note.title}</h3>
@@ -96,7 +132,7 @@ function renderNotes(chapter) {
     });
 
     main.innerHTML += `
-        <section class="content-card">
+        <section id="notesSection" class="content-card">
             <h2>📝 Smart Revision Notes</h2>
             ${html}
         </section>
@@ -104,18 +140,26 @@ function renderNotes(chapter) {
 }
 
 function renderPYQ(chapter) {
-  if (!chapter.pyq) return;
-
   const main = document.getElementById("mainContent");
+
+  if (!chapter.pyq || !chapter.pyq.importantTopics) {
+    main.innerHTML += `
+            <section id="pyqSection" class="content-card">
+                <h2>📊 PYQ Trend Analysis</h2>
+                <p>PYQs will be added soon.</p>
+            </section>
+        `;
+    return;
+  }
 
   let topics = "";
 
-  (chapter.pyq.importantTopics || []).forEach((topic) => {
+  chapter.pyq.importantTopics.forEach((topic) => {
     topics += `<li>${topic}</li>`;
   });
 
   main.innerHTML += `
-        <section class="content-card">
+        <section id="pyqSection" class="content-card">
             <h2>📊 PYQ Trend Analysis</h2>
 
             <div class="pyq-grid">
@@ -141,7 +185,7 @@ function renderOverview(chapter) {
     const overview = document.getElementById("overviewCard");
     overview.innerHTML = `
         <div class="overview-card">
-            <p>${chapter.overview}</p>
+            <p>${chapter.overview || "Overview will be added soon."}</p>
         </div>
     `;
 }
