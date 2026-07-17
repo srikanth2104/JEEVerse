@@ -22,7 +22,7 @@
             </div>
         </section>
 
-        <section class="overview-section">
+        <section id="overviewSection" class="overview-section">
             <div class="container">
                 <h2>Overview</h2>
                 <div id="overviewCard"></div>
@@ -39,49 +39,39 @@
                     </div>
 
                     <aside id="sidebar" class="sidebar">
-                        <aside id="sidebar" class="sidebar">
+                        <div class="sidebar-card">
 
-    <div class="sidebar-card">
+                            <h3>Your Progress</h3>
 
-        <h3>Your Progress</h3>
+                            <div class="progress-bar">
+                                <div id="chapterProgress" class="progress-fill"></div>
+                            </div>
 
-        <div class="progress-bar">
-            <div id="progressFill" class="progress-fill"></div>
-        </div>
+                            <p id="progressText">0% Completed</p>
 
-        <p id="progressText">0% Completed</p>
+                            <button
+                            id="completeBtn"
+                            class="btn btn-primary">
+                                Mark as Completed
 
-        <button
-            id="completeBtn"
-            class="btn btn-primary">
+                            </button>
 
-            Mark as Completed
+                        </div>
 
-        </button>
+                        <div class="sidebar-card">
 
-    </div>
+                            <h3>Quick Navigation</h3>
 
-    <div class="sidebar-card">
+                            <ul class="sidebar-links">
 
-        <h3>Quick Navigation</h3>
+                                <li><a href="#overviewSection">Overview</a></li>
+                                <li><a href="#conceptSection">Key Concepts</a></li>
+                                <li><a href="#formulaSection">Formula Sheet</a></li>
+                                <li><a href="#notesSection">Revision Notes</a></li>
+                                <li><a href="#pyqSection">PYQ Analysis</a></li>
+                            </ul>
 
-        <ul class="sidebar-links">
-
-            <li><a href="#chapter-header">Overview</a></li>
-
-            <li><a href="#conceptSection">Key Concepts</a></li>
-
-            <li><a href="#formulaSection">Formula Sheet</a></li>
-
-            <li><a href="#notesSection">Revision Notes</a></li>
-
-            <li><a href="#pyqSection">PYQ Analysis</a></li>
-
-        </ul>
-
-    </div>
-
-</aside>
+                        </div>
                     </aside>
 
                 </div>
@@ -97,6 +87,6 @@
     <script src="../components/footer.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/modules/chapter.js"></script>
-    <script src="../js/modules/progress.js"></script>
+    
 </body>
 </html>
