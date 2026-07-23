@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Revision Notes | JEEVerse</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/typography.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/utilities.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header id="navbar"></header>
+
+    <main>
+
+        <!-- Page Header -->
+        <section class="page-header">
+
+            <div class="container">
+
+                <h1>Revision Notes</h1>
+
+                <p>
+                    Revise every chapter in just a few minutes.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Subject Tabs -->
+        <section class="subject-tabs">
+
+            <div class="container">
+
+                <button
+                    class="btn btn-primary subject-tab active"
+                    data-subject="physics">
+                    Physics
+                </button>
+
+                <button
+                    class="btn btn-secondary subject-tab"
+                    data-subject="chemistry">
+                    Chemistry
+                </button>
+
+                <button
+                    class="btn btn-secondary subject-tab"
+                    data-subject="mathematics">
+                    Mathematics
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- Search -->
+         <section class="search-section">
+            <div class="container">
+                <div class="search-box">
+                    <input type="text" id="revisionSearch" placeholder="Search revision notes ...">
+                </div>
+            </div>
+         </section>
+
+        <!-- Revision Notes -->
+        <section class="revision-notes">
+
+            <div class="container">
+
+                <div id="revisionContainer"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <!-- JavaScript -->
+    <script src="../components/navbar.js"></script>
+    <script src="../components/footer.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/modules/revision.js"></script>
+
+</body>
+</html>

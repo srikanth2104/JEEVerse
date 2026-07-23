@@ -1,0 +1,28 @@
+[
+  {
+    "title": "Units & Dimensions",
+    "subject": "Physics",
+    "url": "chapter.html?subject=physics&id=units-dimensions",
+    "keywords": ["units", "dimensions", "measurement", "si units"]
+  },
+  {
+    "title": "Kinematics",
+    "subject": "Physics",
+    "type":"Chapter",
+    "url": "chapter.html?subject=physics&id=kinematics",
+    "keywords": [
+      "motion",
+      "velocity",
+      "acceleration",
+      "displacement",
+      "distance"
+    ]
+  },
+  {
+    "title": "Sets",
+    "subject": "Mathematics",
+    "type": "Chapter",
+    "url": "chapter.html?subject=mathematics&id=sets",
+    "keywords": ["sets", "venn", "union"]
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "title": "Units and Dimensions Quiz",
+  "questions": [
+    {
+      "question": "SI unit of force is",
+      "options": ["Newton", "Joule", "Pascal", "Watt"],
+      "answer": 0
+    },
+    {
+      "question": "Dimension of velocity is",
+      "options": ["LT⁻¹", "L²T⁻¹", "MT⁻²", "LT"],
+      "answer": 0
+    },
+    {
+      "question": "Dimension of force is",
+      "options": ["MLT⁻²", "ML²T⁻²", "MT⁻¹", "LT⁻²"],
+      "answer": 0
+    }
+  ]
+}

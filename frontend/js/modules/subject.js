@@ -1,3 +1,5 @@
+let chapters = [];
+
 console.log("subject.js loaded");
 
 document.addEventListener("DOMContentLoaded", loadSubject);
@@ -9,10 +11,11 @@ async function loadSubject() {
     const response = await fetch("../data/physics/chapters.json");
     console.log("2. Fetch successful");
 
-    const chapters = await response.json();
+    chapters = await response.json();
     console.log("3. JSON loaded:", chapters);
 
     renderChapters(chapters);
+    initializeFilters();
     console.log("4. renderChapters finished");
   } catch (error) {
     console.error("ERROR:", error);
@@ -32,7 +35,7 @@ function renderChapters(chapters) {
 
     const card = document.createElement("div");
     card.className = "chapter-card";
-card.innerHTML = `
+    card.innerHTML = `
     <h3>${chapter.name}</h3>
 
     <div class="chapter-meta">
@@ -49,4 +52,44 @@ card.innerHTML = `
   });
 
   console.log("8. All cards added");
+}
+
+function initializeFilters() {
+  const difficulty = document.getElementById("difficultyFilter");
+
+  const weightage = document.getElementById("weightageFilter");
+
+  const reset = document.getElementById("resetFilters");
+
+  if (!difficulty) return;
+
+  difficulty.addEventListener("change", filterChapters);
+
+  weightage.addEventListener("change", filterChapters);
+
+  reset.addEventListener("click", () => {
+    difficulty.value = "";
+
+    weightage.value = "";
+
+    renderChapters(chapters);
+  });
+}
+
+function filterChapters() {
+  const difficulty = document.getElementById("difficultyFilter").value;
+
+  const weightage = document.getElementById("weightageFilter").value;
+
+  let filtered = chapters;
+
+  if (difficulty) {
+    filtered = filtered.filter((chapter) => chapter.difficulty == difficulty);
+  }
+
+  if (weightage) {
+    filtered = filtered.filter((chapter) => chapter.weightage == weightage);
+  }
+
+  renderChapters(filtered);
 }

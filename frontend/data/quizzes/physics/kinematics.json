@@ -1,0 +1,20 @@
+{
+  "title": "Kinematics Quiz",
+  "questions": [
+    {
+      "question": "SI unit of velocity is",
+      "options": ["m/s", "km/hr", "m", "m/s²"],
+      "answer": 0
+    },
+    {
+      "question": "Acceleration is the rate of change of",
+      "options": ["Distance", "Velocity", "Speed", "Displacement"],
+      "answer": 1
+    },
+    {
+      "question": "Equation of motion is",
+      "options": ["F = ma", "v = u + at", "P = VI", "W = Fs"],
+      "answer": 1
+    }
+  ]
+}

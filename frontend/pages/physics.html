@@ -38,10 +38,39 @@
                     formula sheets, PYQs, quizzes and revision checklists.
                 </p>
 
+                <!-- Search Box-->
+
+                <div class="search-box">
+                    <input id="globalSearch" type="text" placeholder="Search chapters...">
+
+                    <div id="searchResults"></div>
+                </div>
+
+                <div class="filter-bar">
+                    <select id="difficultyFilter">
+                        <option value="">All Difficulty</option>
+                        <option value="1">Easy</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Hard</option>
+                    </select>
+
+                    <select id="weightageFilter">
+                        <option value="">All Weightage</option>
+                        <option value="1">1 Star</option>
+                        <option value="2">2 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="5">5 Stars</option>
+                    </select>
+
+                    <button class="btn btn-secondary" id="resetFilters">Reset</button>
+                </div>
+
+
             </div>
 
         </section>
-
+        
         <!-- Chapters -->
 
         <section class="chapter-list">
@@ -64,5 +93,6 @@
     <script src="../components/footer.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/modules/subject.js"></script>
+    <script src="../js/modules/search.js"></script>
 </body>
 </html>

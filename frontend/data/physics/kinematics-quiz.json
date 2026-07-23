@@ -1,0 +1,28 @@
+[
+  {
+    "question": "Which quantity has both magnitude and direction?",
+    "options": ["Speed", "Distance", "Velocity", "Time"],
+    "answer": 2
+  },
+
+  {
+    "question": "SI unit of acceleration is",
+
+    "options": ["m/s", "m/s²", "kg", "N"],
+
+    "answer": 1
+  },
+
+  {
+    "question": "Which graph represents uniform velocity?",
+
+    "options": [
+      "Straight line in x-t graph",
+      "Horizontal line in v-t graph",
+      "Curved graph",
+      "Random graph"
+    ],
+
+    "answer": 1
+  }
+]

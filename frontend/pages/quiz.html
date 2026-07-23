@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz | JEEVerse</title>
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/typography.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/utilities.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<header id="navbar"></header>
+
+<main>
+
+<section class="page-header">
+    <div class="container">
+        <h1>JEEVerse Quiz Center</h1>
+        <p>Select a subject and chapter to practice JEE-level questions.</p>
+    </div>
+</section>
+
+<section class="quiz-section">
+
+<div class="container">
+
+    <section class="quiz-selector">
+        <div class="quiz-subjects" id="subjectButtons">
+            <button class="btn btn-primary subject-btn" data-subject="physics">
+                Physics
+            </button>
+
+            <button class="btn btn-secondary subject-btn" data-subject="chemistry">
+                Chemistry
+            </button>
+
+            <button class="btn btn-secondary subject-btn" data-subject="mathematics">
+                Mathematics
+            </button>
+        </div><br>
+
+        <select id="chapterSelect">
+            <option value="">Select Chapter</option>
+        </select><br><br>
+
+        <button id="startQuizBtn" class="btn btn-primary" disabled>
+            Start Quiz
+        </button>
+    </section>
+    <div class="quiz-timer">
+        <h3>⏱ Time Remaining:
+            <span id="timer">5:00</span>
+        </h3>
+    </div>
+    <div id="quizContainer"></div>
+
+<div class="quiz-actions">
+
+    <button
+        id="submitQuiz"
+        class="btn btn-primary">
+
+        Submit Quiz
+
+    </button>
+
+</div>
+
+<div id="quizResult"></div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer id="footer"></footer>
+
+<script src="../components/navbar.js"></script>
+<script src="../components/footer.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/modules/quiz.js"></script>
+
+</body>
+</html>

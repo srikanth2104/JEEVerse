@@ -1,128 +1,235 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard | JEEVerse</title>
 
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/typography.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/utilities.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="stylesheet" href="../css/style.css">
-
-</head>
-<body>
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/typography.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/utilities.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
     <header id="navbar"></header>
     <main>
-        <section class="dashboard-header">
-            <div class="container">
-                <h1>Dashboard</h1>
+      <section class="dashboard-header">
+        <div class="container">
+          <h1>Dashboard</h1>
 
-                <p>
-                    Track your JEE preparation, monitor progress,
-                    continue learning and stay consistent.
-                </p>
+          <p>
+            Track your JEE preparation, monitor progress, continue learning and
+            stay consistent.
+          </p>
+        </div>
+      </section>
+
+      <section class="dashboard-stats">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stats-card">
+              <h3 id="completedCount">0</h3>
+              <p>Completed Chapters</p>
             </div>
-        </section>
 
-        <section class="dashboard-stats">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stats-card">
-                        <h3 id="completedCount">0</h3>
-                        <p>Completed Chapters</p>
-                    </div>
-
-                    <div class="stats-card">
-                        <h3 id="studyHours">0</h3>
-                        <p>Study Hours</p>
-                    </div>
-
-                    <div class="stats-card">
-                        <h3 id="currentStreak">0</h3>
-                        <p>Current Streak</p>
-                    </div>
-
-                    <div class="stats-card">
-                        <h3 id="revisionPending">0</h3>
-                        <p>Revision Pending</p>
-                    </div>
-                </div>
+            <div class="stats-card">
+              <h3 id="studyHours">0</h3>
+              <p>Study Hours</p>
             </div>
-        </section>
 
-        <section class="subject-progress">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Subject Progress</h2>
-                    <p>Monitor your completion across all subjects.</p>
-                </div>
-
-                <div class="progress-list">
-                    <div class="progress-item">
-                        <div class="progress-info">
-                            <span>Physics</span>
-                            <span id="physicsPercent">0%</span>
-                        </div>
-
-                        <div class="progress-bar">
-                            <div id="physicsBar" class="progress-fill"></div>
-                        </div>
-                    </div>
-
-                    <div class="progress-item">
-                        <div class="progress-info">
-                            <span>Chemistry</span>
-                            <span id="chemistryPercent">0%</span>
-                        </div>
-
-                        <div class="progress-bar">
-                            <div id="chemistryBar" class="progress-fill"></div>
-                        </div>
-                    </div>
-
-                    <div class="progress-item">
-                        <div class="progress-info">
-                            <span>Mathematics</span>
-                            <span id="mathPercent">0%</span>
-                        </div>
-
-                        <div class="progress-bar">
-                            <div id="mathBar" class="progress-fill"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="stats-card">
+              <h3 id="currentStreak">0</h3>
+              <p>Current Streak</p>
             </div>
-        </section>
 
-        <section class="continue-learning">
-            <div class="container">
-                <div class="content-card">
-                    <h2>Continue Learning</h2>
-                    <h3 id="continueTitle">No Chapter Selected</h3>
-
-                    <button id="resumeBtn" class="btn btn-primary">
-                        Resume
-                    </button>
-                </div>
+            <div class="stats-card">
+              <h3 id="revisionPending">0</h3>
+              <p>Revision Pending</p>
             </div>
-        </section>
 
-        <section class="recent-activity">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Recent Activity</h2>
-                </div>
-
-                <div id="activityList" class="content-card">
-                    No Activity Yet.
-                </div>
+            <div class="stats-card">
+              <h3 id="quizBestScore">0</h3>
+              <p>Best Quiz Score</p>
             </div>
-        </section>
+
+            <div class="stats-card">
+              <h3 id="quizAttempts">0</h3>
+              <p>Quizzes Attempted</p>
+            </div>
+
+            <div class="stats-card">
+              <h3 id="quizAverage">0%</h3>
+              <p>Average Quiz Score</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="subject-progress">
+        <div class="container">
+          <div class="section-header">
+            <h2>Subject Progress</h2>
+            <p>Monitor your completion across all subjects.</p>
+          </div>
+
+          <div class="progress-list">
+            <div class="progress-item">
+              <div class="progress-info">
+                <span>Physics</span>
+                <span id="physicsPercent">0%</span>
+              </div>
+
+              <div class="progress-bar">
+                <div id="physicsBar" class="progress-fill"></div>
+              </div>
+            </div>
+
+            <div class="progress-item">
+              <div class="progress-info">
+                <span>Chemistry</span>
+                <span id="chemistryPercent">0%</span>
+              </div>
+
+              <div class="progress-bar">
+                <div id="chemistryBar" class="progress-fill"></div>
+              </div>
+            </div>
+
+            <div class="progress-item">
+              <div class="progress-info">
+                <span>Mathematics</span>
+                <span id="mathPercent">0%</span>
+              </div>
+
+              <div class="progress-bar">
+                <div id="mathBar" class="progress-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="study-insights">
+        <div class="container">
+          <div class="section-header">
+            <h2>Study Insights</h2>
+            <p>Your learning summary</p>
+          </div>
+          <div class="stats-grid">
+            <div class="stats-card">
+              <h3 id="mostStudiedSubject">-</h3>
+              <p>Most Studied Subject</p>
+            </div>
+            <div class="stats-card">
+              <h3 id="totalCompleted">0</h3>
+              <p>Total Chapters Completed</p>
+            </div>
+            <div class="stats-card">
+              <h3 id="completionPercent">0%</h3>
+              <p>Overall Completion</p>
+            </div>
+            <div class="stats-card">
+              <h3 id="lastStudied">-</h3>
+              <p>Last Studied</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="study-heatmap">
+        <div class="container">
+          <div class="section-header">
+            <h2>Study Heatmap</h2>
+            <p>Your last 30 days of learning activity</p>
+          </div>
+          <div id="studyHeatmap" class="heatmap-grid"></div>
+        </div>
+      </section>
+
+      <section class="subject-distribution">
+        <div class="container">
+          <div class="section-header">
+            <h2>Subject Distribution</h2>
+            <p>Your Completed chapters by subjects.</p>
+          </div>
+
+          <div class="distribution-grid">
+            <div class="distribution-card">
+              <h3>Physics</h3>
+              <div class="distribution-bar">
+                <div id="physicsDistribution" class="distribution-fill"></div>
+              </div>
+              <p id="physicsDistributionText">0 Chapters</p>
+            </div>
+
+            <div class="distribution-card">
+              <h3>Chemistry</h3>
+              <div class="distribution-bar">
+                <div id="chemistryDistribution" class="distribution-fill"></div>
+              </div>
+              <p id="chemistryDistributionText">0 Chapters</p>
+            </div>
+
+            <div class="distribution-card">
+              <h3>Mathematics</h3>
+              <div class="distribution-bar">
+                <div id="mathDistribution" class="distribution-fill"></div>
+              </div>
+              <p id="mathDistributionText">0 Chapters</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="continue-learning">
+        <div class="container">
+          <div class="content-card">
+            <h2>Continue Learning</h2>
+            <h3 id="continueTitle">No Chapter Selected</h3>
+
+            <button id="resumeBtn" class="btn btn-primary">Resume</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="favorite-chapters">
+        <div class="container">
+          <div class="section-header">
+            <h2>⭐ Favourite Chapters</h2>
+            <p>Your bookmarked chapters for quick access.</p>
+          </div>
+
+          <div id="favoritesList" class="content-card">
+            No favourite chapters yet.
+          </div>
+        </div>
+      </section>
+
+      <section class="quiz-chart-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Quiz Performance</h2>
+            <p>Your recent quiz scores</p>
+          </div>
+          <div class="content-card">
+            <canvas id="quizChart" width="800" height="350"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="recent-activity">
+        <div class="container">
+          <div class="section-header">
+            <h2>Recent Activity</h2>
+          </div>
+
+          <div id="activityList" class="content-card">No Activity Yet.</div>
+        </div>
+      </section>
     </main>
 
     <footer id="footer"></footer>
@@ -131,5 +238,5 @@
     <script src="../components/footer.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/modules/dashboard.js"></script>
-</body>
+  </body>
 </html>
