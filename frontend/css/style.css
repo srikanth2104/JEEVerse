@@ -349,3 +349,65 @@ mark {
     display: block;
   }
 }
+
+.stats-card p {
+  font-weight: 600;
+}
+
+.stats-card:has(p:contains("Locked")) {
+  opacity: 0.65;
+}
+
+.xp-profile {
+  padding: 40px 0;
+}
+
+#levelTitle {
+  color: var(--primary);
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+#xpRemaining {
+  margin-top: 12px;
+  color: var(--text-light);
+}
+
+#userXP {
+  color: var(--primary);
+}
+
+.toast {
+  position: fixed;
+  top: 100px;
+  right: 25px;
+  min-width: 260px;
+  padding: 18px 22px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  transform: translateX(400px);
+  transition: 0.35s;
+  z-index: 99999;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.toast.show {
+  transform: translateX(0);
+}
+
+.toast.success {
+  background: #16a34a;
+}
+
+.toast.warning {
+  background: #f59e0b;
+}
+
+.toast.error {
+  background: #dc2626;
+}
+
+.toast.info {
+  background: #2563eb;
+}

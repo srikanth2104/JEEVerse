@@ -9,7 +9,14 @@ async function loadSearchData() {
   }
 
   try {
-    const response = await fetch("data/search.json");
+    const isHome =
+      window.location.pathname.endsWith("index.html") ||
+      window.location.pathname.endsWith("/frontend/") ||
+      window.location.pathname === "/";
+
+    const path = isHome ? "./data/search.json" : "../data/search.json";
+
+    const response = await fetch(path);
 
     if (!response.ok) {
       throw new Error("Unable to load search database.");

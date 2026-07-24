@@ -1,149 +1,190 @@
 document.addEventListener("DOMContentLoaded", initializeHomeSearch);
+
 let selectedIndex = -1;
 let currentResults = [];
+
+/* --------------------------
+   Highlight Search Text
+-------------------------- */
 
 function highlightText(text, keyword) {
   if (!keyword) return text;
 
-  const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-  const regex = new RegExp(`(${escapedKeyword})`, "gi");
-
-  return text.replace(regex, "<mark>$1</mark>");
+  return text.replace(new RegExp(`(${escaped})`, "gi"), "<mark>$1</mark>");
 }
+
+/* --------------------------
+   Initialize
+-------------------------- */
 
 async function initializeHomeSearch() {
   const input = document.getElementById("homeSearch");
   const results = document.getElementById("homeSearchResults");
-  input.addEventListener("focus", showRecentSearches);
+
   if (!input || !results) return;
 
   await loadSearchData();
 
-  input.addEventListener("input", async () => {
-    const query = input.value.trim();
-
-    results.style.display = "block";
-
-    results.innerHTML = `
-  <div class="search-item">
-    Searching...
-  </div>
-`;
-
-    if (query.length < 2) return;
-
-    const matches = await searchDatabase(query);
-    const limitedResults = matches.slice(0, 8);
-
-    currentResults = limitedResults;
-    selectedIndex = -1;
-
-    if (limitedResults.length === 0) {
-      results.style.display = "block";
-      results.innerHTML = `
-        <div class="search-item">
-          <strong>No results found.</strong>
-          <br>
-          <small>Try another keyword.</small>
-        </div>
-      `;
-      return;
-    }
-
-    results.style.display = "block";
-
-    limitedResults.forEach((item) => {
-      results.innerHTML += `
-    <div class="search-item">
-      <a href="pages/${item.url}" onclick="saveRecentSearch('${item.title}'); 
-      document.getElementById('homeSearchResults').style.display='none';">
-
-        <div class="search-title">
-          <strong>${highlightText(item.title, query)}</strong>
-
-          <span class="search-badge">
-            ${item.subject}
-          </span>
-        </div>
-
-        <small>${item.type}</small>
-
-      </a>
-    </div>
-  `;
-    });
-  });
-
-  input.addEventListener("keydown", (event) => {
-    const items = document.querySelectorAll(".search-item");
-
-    if (items.length === 0) return;
-
-    switch (event.key) {
-      case "ArrowDown":
-        event.preventDefault();
-
-        selectedIndex++;
-
-        if (selectedIndex >= items.length) {
-          selectedIndex = 0;
-        }
-
-        updateSelection(items);
-
-        break;
-
-      case "ArrowUp":
-        event.preventDefault();
-
-        selectedIndex--;
-
-        if (selectedIndex < 0) {
-          selectedIndex = items.length - 1;
-        }
-
-        updateSelection(items);
-
-        break;
-
-      case "Enter":
-        if (selectedIndex >= 0) {
-          event.preventDefault();
-
-          const link = items[selectedIndex].querySelector("a");
-
-          if (link) {
-            const title = currentResults[selectedIndex].title;
-
-            saveRecentSearch(title);
-            input.value = "";
-            results.style.display = "none";
-
-            window.location.href = link.href;
-          }
-        }
-
-        break;
-
-      case "Escape":
-        results.style.display = "none";
-        selectedIndex = -1;
-        break;
+  input.addEventListener("focus", () => {
+    if (input.value.trim() === "") {
+      showRecentSearches();
     }
   });
 
-  document.addEventListener("click", (event) => {
-    if (!event.target.closest(".hero-search")) {
+  input.addEventListener("input", () => performSearch(input.value));
+
+  input.addEventListener("keydown", handleKeyboard);
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".hero-search")) {
       results.style.display = "none";
     }
   });
 }
 
-function updateSelection(items) {
+/* --------------------------
+   Search
+-------------------------- */
+
+async function performSearch(query) {
+  const results = document.getElementById("homeSearchResults");
+
+  query = query.trim();
+
+  results.style.display = "block";
+
+  if (query.length < 2) {
+    showRecentSearches();
+    return;
+  }
+
+  results.innerHTML = `
+<div class="search-item">
+Searching...
+</div>
+`;
+
+  const matches = await searchDatabase(query);
+
+  currentResults = matches.slice(0, 8);
+
+  selectedIndex = -1;
+
+  renderResults(currentResults, query);
+}
+
+/* --------------------------
+   Render Search Results
+-------------------------- */
+
+function renderResults(items, query) {
+  const results = document.getElementById("homeSearchResults");
+
+  results.innerHTML = "";
+
+  if (items.length === 0) {
+    results.innerHTML = `
+<div class="search-item">
+<strong>No Results Found</strong>
+</div>
+`;
+    return;
+  }
+
   items.forEach((item) => {
-    item.classList.remove("selected");
+    results.innerHTML += `
+<div class="search-item">
+
+<a href="pages/${item.url}"
+   onclick='saveRecentSearch(${JSON.stringify(item)});'>
+
+<div class="search-title">
+
+<strong>
+${highlightText(item.title, query)}
+</strong>
+
+<span class="search-badge">
+${item.subject}
+</span>
+
+</div>
+
+<small>${item.type || "Chapter"}</small>
+
+</a>
+
+</div>
+`;
   });
+
+  results.style.display = "block";
+}
+
+/* --------------------------
+   Keyboard Navigation
+-------------------------- */
+
+function handleKeyboard(event) {
+  const items = document.querySelectorAll(".search-item");
+
+  if (items.length === 0) return;
+
+  switch (event.key) {
+    case "ArrowDown":
+      event.preventDefault();
+
+      selectedIndex++;
+
+      if (selectedIndex >= items.length) selectedIndex = 0;
+
+      updateSelection(items);
+
+      break;
+
+    case "ArrowUp":
+      event.preventDefault();
+
+      selectedIndex--;
+
+      if (selectedIndex < 0) selectedIndex = items.length - 1;
+
+      updateSelection(items);
+
+      break;
+
+    case "Enter":
+      event.preventDefault();
+
+      if (currentResults.length === 0) return;
+
+      if (selectedIndex === -1) selectedIndex = 0;
+
+      const item = currentResults[selectedIndex];
+
+      saveRecentSearch(item);
+
+      window.location.href = `pages/${item.url}`;
+
+      break;
+
+    case "Escape":
+      document.getElementById("homeSearchResults").style.display = "none";
+
+      selectedIndex = -1;
+
+      break;
+  }
+}
+
+/* --------------------------
+   Highlight Selected Item
+-------------------------- */
+
+function updateSelection(items) {
+  items.forEach((item) => item.classList.remove("selected"));
 
   if (selectedIndex >= 0) {
     items[selectedIndex].classList.add("selected");
@@ -155,39 +196,57 @@ function updateSelection(items) {
   }
 }
 
-function saveRecentSearch(title) {
+/* --------------------------
+   Recent Searches
+-------------------------- */
+
+function saveRecentSearch(item) {
   let recent = JSON.parse(localStorage.getItem("recentSearches")) || [];
 
-  recent = recent.filter((item) => item !== title);
+  recent = recent.filter((search) => search.title !== item.title);
 
-  recent.unshift(title);
+  recent.unshift({
+    title: item.title,
+    url: item.url,
+    subject: item.subject,
+    type: item.type || "Chapter",
+  });
 
-  if (recent.length > 5) {
-    recent.pop();
-  }
+  if (recent.length > 5) recent.pop();
 
   localStorage.setItem("recentSearches", JSON.stringify(recent));
 }
 
+/* --------------------------
+   Show Recent Searches
+-------------------------- */
+
 function showRecentSearches() {
-  const input = document.getElementById("homeSearch");
   const results = document.getElementById("homeSearchResults");
 
-  if (input.value.trim() !== "") return;
-
-  const recent = JSON.parse(localStorage.getItem("recentSearches")) || [];
-
-  if (recent.length === 0) return;
-
-  results.style.display = "block";
+  let recent = JSON.parse(localStorage.getItem("recentSearches")) || [];
 
   results.innerHTML = "";
 
-  recent.forEach((title) => {
+  if (recent.length === 0) {
+    results.style.display = "none";
+    return;
+  }
+
+  recent.forEach((item) => {
     results.innerHTML += `
-      <div class="search-item recent-search">
-        🕘 ${title}
-      </div>
-    `;
+<div class="search-item">
+
+<a href="pages/${item.url}"
+   onclick='saveRecentSearch(${JSON.stringify(item)});'>
+
+🕘 ${item.title}
+
+</a>
+
+</div>
+`;
   });
+
+  results.style.display = "block";
 }

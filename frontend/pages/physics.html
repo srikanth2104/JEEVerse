@@ -1,88 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Physics | JEEVerse</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/typography.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/utilities.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="stylesheet" href="../css/style.css">
-</head>
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/typography.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/utilities.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
 
-<body>
-
+  <body>
     <!-- Navbar -->
     <header id="navbar"></header>
 
     <main>
+      <!-- Page Header -->
 
-        <!-- Page Header -->
+      <section class="page-header">
+        <div class="container">
+          <h1>Physics</h1>
 
-        <section class="page-header">
+          <p>
+            Master Physics chapter by chapter with smart notes, formula sheets,
+            PYQs, quizzes and revision checklists.
+          </p>
 
-            <div class="container">
+          <!-- Search Box-->
 
-                <h1>Physics</h1>
+          <div class="search-box">
+            <input
+              id="globalSearch"
+              type="text"
+              placeholder="Search chapters..."
+            />
 
-                <p>
-                    Master Physics chapter by chapter with smart notes,
-                    formula sheets, PYQs, quizzes and revision checklists.
-                </p>
+            <div id="searchResults"></div>
+          </div>
 
-                <!-- Search Box-->
+          <div class="filter-bar">
+            <select id="difficultyFilter">
+              <option value="">All Difficulty</option>
+              <option value="1">Easy</option>
+              <option value="2">Medium</option>
+              <option value="3">Hard</option>
+            </select>
 
-                <div class="search-box">
-                    <input id="globalSearch" type="text" placeholder="Search chapters...">
+            <select id="weightageFilter">
+              <option value="">All Weightage</option>
+              <option value="1">1 Star</option>
+              <option value="2">2 Stars</option>
+              <option value="3">3 Stars</option>
+              <option value="4">4 Stars</option>
+              <option value="5">5 Stars</option>
+            </select>
 
-                    <div id="searchResults"></div>
-                </div>
+            <button class="btn btn-secondary" id="resetFilters">Reset</button>
+          </div>
+        </div>
+      </section>
 
-                <div class="filter-bar">
-                    <select id="difficultyFilter">
-                        <option value="">All Difficulty</option>
-                        <option value="1">Easy</option>
-                        <option value="2">Medium</option>
-                        <option value="3">Hard</option>
-                    </select>
+      <!-- Chapters -->
 
-                    <select id="weightageFilter">
-                        <option value="">All Weightage</option>
-                        <option value="1">1 Star</option>
-                        <option value="2">2 Stars</option>
-                        <option value="3">3 Stars</option>
-                        <option value="4">4 Stars</option>
-                        <option value="5">5 Stars</option>
-                    </select>
-
-                    <button class="btn btn-secondary" id="resetFilters">Reset</button>
-                </div>
-
-
-            </div>
-
-        </section>
-        
-        <!-- Chapters -->
-
-        <section class="chapter-list">
-
-            <div class="container">
-
-                <div class="chapter-grid"></div>
-
-            </div>
-
-        </section>
-
+      <section class="chapter-list">
+        <div class="container">
+          <div class="chapter-grid"></div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
@@ -92,7 +83,8 @@
     <script src="../components/navbar.js"></script>
     <script src="../components/footer.js"></script>
     <script src="../js/app.js"></script>
+    <script src="../js/modules/unlockManager.js"></script>
     <script src="../js/modules/subject.js"></script>
     <script src="../js/modules/search.js"></script>
-</body>
+  </body>
 </html>

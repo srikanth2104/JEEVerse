@@ -2,232 +2,227 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Dashboard | JEEVerse</title>
 
-    <link rel="stylesheet" href="../css/variables.css" />
     <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/variables.css" />
     <link rel="stylesheet" href="../css/typography.css" />
     <link rel="stylesheet" href="../css/layout.css" />
     <link rel="stylesheet" href="../css/components.css" />
-    <link rel="stylesheet" href="../css/utilities.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
     <link rel="stylesheet" href="../css/responsive.css" />
-    <link rel="stylesheet" href="../css/style.css" />
   </head>
+
   <body>
     <header id="navbar"></header>
-    <main>
-      <section class="dashboard-header">
-        <div class="container">
-          <h1>Dashboard</h1>
 
-          <p>
-            Track your JEE preparation, monitor progress, continue learning and
-            stay consistent.
+    <main class="dashboard">
+      <!-- ================================= -->
+      <!-- HERO -->
+      <!-- ================================= -->
+
+      <section class="dashboard-hero">
+        <div class="hero-card">
+          <div>
+            <h1 id="welcomeMessage">Good Evening 👋</h1>
+
+            <p>Welcome back to JEEVerse. Continue your preparation today.</p>
+          </div>
+
+          <div class="daily-goal">
+            <h3>Today's Goal</h3>
+
+            <div class="goal-progress">
+              <div id="goalProgressBar" class="goal-progress-fill"></div>
+            </div>
+
+            <small id="goalText"> 0% </small>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================= -->
+      <!-- QUICK ACTIONS -->
+      <!-- ================================= -->
+
+      <section class="quick-actions">
+        <button class="action-card" id="resumeBtn">
+          <span class="action-icon">📖</span>
+          <span>Resume</span>
+        </button>
+
+        <button class="action-card">
+          <span class="action-icon">🗓</span>
+          <span>Planner</span>
+        </button>
+
+        <button class="action-card">
+          <span class="action-icon">🚀</span>
+          <span>Quiz</span>
+        </button>
+
+        <button class="action-card">
+          <span class="action-icon">⭐</span>
+          <span>Favorites</span>
+        </button>
+      </section>
+
+      <!-- ================================= -->
+      <!-- STATS -->
+      <!-- ================================= -->
+
+      <section class="stats-grid">
+        <div class="dashboard-card stat-card">
+          <span class="stat-icon">📚</span>
+
+          <h4>Completed</h4>
+
+          <h2 id="completedCount">0</h2>
+
+          <small id="completedToday"> +0 Today </small>
+        </div>
+
+        <div class="dashboard-card stat-card">
+          <span class="stat-icon">⏰</span>
+
+          <h4>Study Hours</h4>
+
+          <h2 id="studyHours">0</h2>
+        </div>
+
+        <div class="dashboard-card stat-card">
+          <span class="stat-icon">⭐</span>
+
+          <h4>XP</h4>
+
+          <h2 id="xpCount">0</h2>
+        </div>
+
+        <div class="dashboard-card stat-card">
+          <span class="stat-icon">🔥</span>
+
+          <h4>Current Streak</h4>
+
+          <h2 id="currentStreak">0</h2>
+        </div>
+      </section>
+
+      <!-- ================================= -->
+      <!-- CONTINUE LEARNING -->
+      <!-- ================================= -->
+
+      <section class="dashboard-section">
+        <h2>Continue Learning</h2>
+
+        <div id="continueLearning"></div>
+      </section>
+
+      <!-- ================================= -->
+      <!-- SUBJECT PROGRESS -->
+      <!-- ================================= -->
+
+      <section class="dashboard-section">
+        <h2>Subject Progress</h2>
+
+        <div id="subjectProgress" class="subject-progress-grid"></div>
+      </section>
+
+      <!-- ================================= -->
+      <!-- TODAY PLANNER -->
+      <!-- ================================= -->
+
+      <section class="dashboard-section">
+        <h2>Today's Planner</h2>
+
+        <div id="plannerContent" class="planner-grid"></div>
+      </section>
+
+      <!-- ================================= -->
+      <!-- FAVORITES -->
+      <!-- ================================= -->
+
+      <section class="dashboard-section">
+        <h2>Favourite Chapters</h2>
+
+        <div id="favoritesContainer" class="content-grid"></div>
+      </section>
+
+      <!-- ================================= -->
+      <!-- RECENT -->
+      <!-- ================================= -->
+
+      <section class="dashboard-section">
+        <h2>Recent Chapters</h2>
+
+        <div id="recentContainer" class="content-grid"></div>
+      </section>
+
+      <!-- ================================= -->
+      <!-- ACHIEVEMENTS -->
+      <!-- ================================= -->
+
+      <section class="dashboard-section">
+        <h2>Achievements</h2>
+
+        <div id="achievementGrid" class="achievement-grid"></div>
+      </section>
+
+      <!-- ================================= -->
+      <!-- QUIZ -->
+      <!-- ================================= -->
+
+      <section class="dashboard-section">
+        <h2>Quiz Performance</h2>
+
+        <div class="chart-card">
+          <canvas id="quizChart" width="900" height="350"> </canvas>
+        </div>
+      </section>
+
+      <!-- ================================= -->
+      <!-- STUDY HEATMAP -->
+      <!-- ================================= -->
+
+      <section class="dashboard-section">
+        <h2>Study Heatmap</h2>
+
+        <div id="studyHeatmap" class="dashboard-card"></div>
+      </section>
+
+      <!-- ================================= -->
+      <!-- MOTIVATION -->
+      <!-- ================================= -->
+
+      <section class="dashboard-section">
+        <div class="quote-card">
+          <h3>Quote of the Day</h3>
+
+          <p id="dailyQuote">
+            Success is the sum of small efforts repeated every day.
           </p>
         </div>
       </section>
 
-      <section class="dashboard-stats">
-        <div class="container">
-          <div class="stats-grid">
-            <div class="stats-card">
-              <h3 id="completedCount">0</h3>
-              <p>Completed Chapters</p>
-            </div>
+      <!-- ================================= -->
+      <!-- POMODORO -->
+      <!-- ================================= -->
 
-            <div class="stats-card">
-              <h3 id="studyHours">0</h3>
-              <p>Study Hours</p>
-            </div>
+      <section class="dashboard-section">
+        <h2>Focus Timer</h2>
 
-            <div class="stats-card">
-              <h3 id="currentStreak">0</h3>
-              <p>Current Streak</p>
-            </div>
+        <div class="timer-card">
+          <h1 id="timerDisplay">25:00</h1>
 
-            <div class="stats-card">
-              <h3 id="revisionPending">0</h3>
-              <p>Revision Pending</p>
-            </div>
+          <div class="timer-buttons">
+            <button id="startTimer" class="btn btn-primary">Start</button>
 
-            <div class="stats-card">
-              <h3 id="quizBestScore">0</h3>
-              <p>Best Quiz Score</p>
-            </div>
+            <button id="pauseTimer" class="btn btn-secondary">Pause</button>
 
-            <div class="stats-card">
-              <h3 id="quizAttempts">0</h3>
-              <p>Quizzes Attempted</p>
-            </div>
-
-            <div class="stats-card">
-              <h3 id="quizAverage">0%</h3>
-              <p>Average Quiz Score</p>
-            </div>
+            <button id="resetTimer" class="btn btn-secondary">Reset</button>
           </div>
-        </div>
-      </section>
-
-      <section class="subject-progress">
-        <div class="container">
-          <div class="section-header">
-            <h2>Subject Progress</h2>
-            <p>Monitor your completion across all subjects.</p>
-          </div>
-
-          <div class="progress-list">
-            <div class="progress-item">
-              <div class="progress-info">
-                <span>Physics</span>
-                <span id="physicsPercent">0%</span>
-              </div>
-
-              <div class="progress-bar">
-                <div id="physicsBar" class="progress-fill"></div>
-              </div>
-            </div>
-
-            <div class="progress-item">
-              <div class="progress-info">
-                <span>Chemistry</span>
-                <span id="chemistryPercent">0%</span>
-              </div>
-
-              <div class="progress-bar">
-                <div id="chemistryBar" class="progress-fill"></div>
-              </div>
-            </div>
-
-            <div class="progress-item">
-              <div class="progress-info">
-                <span>Mathematics</span>
-                <span id="mathPercent">0%</span>
-              </div>
-
-              <div class="progress-bar">
-                <div id="mathBar" class="progress-fill"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="study-insights">
-        <div class="container">
-          <div class="section-header">
-            <h2>Study Insights</h2>
-            <p>Your learning summary</p>
-          </div>
-          <div class="stats-grid">
-            <div class="stats-card">
-              <h3 id="mostStudiedSubject">-</h3>
-              <p>Most Studied Subject</p>
-            </div>
-            <div class="stats-card">
-              <h3 id="totalCompleted">0</h3>
-              <p>Total Chapters Completed</p>
-            </div>
-            <div class="stats-card">
-              <h3 id="completionPercent">0%</h3>
-              <p>Overall Completion</p>
-            </div>
-            <div class="stats-card">
-              <h3 id="lastStudied">-</h3>
-              <p>Last Studied</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="study-heatmap">
-        <div class="container">
-          <div class="section-header">
-            <h2>Study Heatmap</h2>
-            <p>Your last 30 days of learning activity</p>
-          </div>
-          <div id="studyHeatmap" class="heatmap-grid"></div>
-        </div>
-      </section>
-
-      <section class="subject-distribution">
-        <div class="container">
-          <div class="section-header">
-            <h2>Subject Distribution</h2>
-            <p>Your Completed chapters by subjects.</p>
-          </div>
-
-          <div class="distribution-grid">
-            <div class="distribution-card">
-              <h3>Physics</h3>
-              <div class="distribution-bar">
-                <div id="physicsDistribution" class="distribution-fill"></div>
-              </div>
-              <p id="physicsDistributionText">0 Chapters</p>
-            </div>
-
-            <div class="distribution-card">
-              <h3>Chemistry</h3>
-              <div class="distribution-bar">
-                <div id="chemistryDistribution" class="distribution-fill"></div>
-              </div>
-              <p id="chemistryDistributionText">0 Chapters</p>
-            </div>
-
-            <div class="distribution-card">
-              <h3>Mathematics</h3>
-              <div class="distribution-bar">
-                <div id="mathDistribution" class="distribution-fill"></div>
-              </div>
-              <p id="mathDistributionText">0 Chapters</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="continue-learning">
-        <div class="container">
-          <div class="content-card">
-            <h2>Continue Learning</h2>
-            <h3 id="continueTitle">No Chapter Selected</h3>
-
-            <button id="resumeBtn" class="btn btn-primary">Resume</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="favorite-chapters">
-        <div class="container">
-          <div class="section-header">
-            <h2>⭐ Favourite Chapters</h2>
-            <p>Your bookmarked chapters for quick access.</p>
-          </div>
-
-          <div id="favoritesList" class="content-card">
-            No favourite chapters yet.
-          </div>
-        </div>
-      </section>
-
-      <section class="quiz-chart-section">
-        <div class="container">
-          <div class="section-header">
-            <h2>Quiz Performance</h2>
-            <p>Your recent quiz scores</p>
-          </div>
-          <div class="content-card">
-            <canvas id="quizChart" width="800" height="350"></canvas>
-          </div>
-        </div>
-      </section>
-
-      <section class="recent-activity">
-        <div class="container">
-          <div class="section-header">
-            <h2>Recent Activity</h2>
-          </div>
-
-          <div id="activityList" class="content-card">No Activity Yet.</div>
         </div>
       </section>
     </main>
@@ -236,7 +231,14 @@
 
     <script src="../components/navbar.js"></script>
     <script src="../components/footer.js"></script>
-    <script src="../js/app.js"></script>
-    <script src="../js/modules/dashboard.js"></script>
+
+    <script src="../js/modules/statisticsManager.js"></script>
+    <script src="../js/modules/progressManager.js"></script>
+    <script src="../js/modules/recentManager.js"></script>
+    <script src="../js/modules/favoritesManager.js"></script>
+    <script src="../js/modules/plannerManager.js"></script>
+    <script src="../js/modules/achievementManager.js"></script>
+    <script src="../js/modules/chartManager.js"></script>
+    <script src="../js/dashboard.js"></script>
   </body>
 </html>

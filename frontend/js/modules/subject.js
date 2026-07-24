@@ -30,24 +30,32 @@ function renderChapters(chapters) {
 
   grid.innerHTML = "";
 
-  chapters.forEach((chapter, index) => {
-    console.log(`7. Rendering chapter ${index + 1}:`, chapter.name);
+  chapters.forEach((chapter) => {
+    const unlocked = isChapterUnlocked("physics", chapter.slug);
 
     const card = document.createElement("div");
     card.className = "chapter-card";
+
     card.innerHTML = `
-    <h3>${chapter.name}</h3>
+      <h3>${chapter.name}</h3>
 
-    <div class="chapter-meta">
-      <p>⭐ Weightage ${"★".repeat(chapter.weightage)}</p>
-      <p>📈 Difficulty ${"★".repeat(chapter.difficulty)}</p>
-      <p>⏱ ${chapter.estimatedHours} Hours</p>
-    </div>
+      <div class="chapter-meta">
+        <p>⭐ Weightage ${"★".repeat(chapter.weightage)}</p>
+        <p>📈 Difficulty ${"★".repeat(chapter.difficulty)}</p>
+        <p>⏱ ${chapter.estimatedHours} Hours</p>
+      </div>
 
-    <a href="chapter.html?subject=physics&id=${chapter.slug}" class="btn btn-primary">
-      Study
-    </a>
+      ${
+        unlocked
+          ? `<a href="chapter.html?subject=physics&id=${chapter.slug}" class="btn btn-primary">
+                Study
+             </a>`
+          : `<button class="btn btn-secondary" disabled>
+                🔒 Locked
+             </button>`
+      }
     `;
+
     grid.appendChild(card);
   });
 
@@ -73,6 +81,13 @@ function initializeFilters() {
     weightage.value = "";
 
     renderChapters(chapters);
+    saveRecentChapter({
+      title: chapter.title,
+
+      subject: chapter.subject,
+
+      url: window.location.pathname + window.location.search,
+    });
   });
 }
 

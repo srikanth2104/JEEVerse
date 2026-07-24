@@ -36,34 +36,43 @@ async function loadChapter() {
 
     const main = document.getElementById("mainContent");
     main.innerHTML = "";
-console.log("1");
-renderHeader(chapter);
+    console.log("1");
+    renderHeader(chapter);
 
-console.log("2");
-renderOverview(chapter);
+    console.log("2");
+    renderOverview(chapter);
 
-console.log("3");
-renderConcepts(chapter);
+    console.log("3");
+    renderConcepts(chapter);
 
-console.log("4");
-renderFormulas(chapter);
+    console.log("4");
+    renderFormulas(chapter);
 
-console.log("5");
-renderNotes(chapter);
+    console.log("5");
+    renderNotes(chapter);
 
-console.log("6");
-renderPYQ(chapter);
+    console.log("6");
+    renderPYQ(chapter);
 
-console.log("7");
-initializeCompletion(subject, chapterId, chapter);
+    console.log("7");
+    initializeCompletion(subject, chapterId, chapter);
 
-console.log("8");
-initializeFavorites(subject, chapterId, chapter);
+    console.log("8");
+    initializeFavorites(subject, chapterId, chapter);
 
-console.log("9");
-loadAchievement(subject, chapterId);
+    console.log("9");
+    loadAchievement(subject, chapterId);
 
-console.log("DONE");
+    console.log("DONE");
+
+    localStorage.setItem(
+      "lastOpenedChapter",
+      JSON.stringify({
+        title: chapter.title,
+        url: window.location.pathname + window.location.search,
+        subject: chapter.subject,
+      }),
+    );
 
     // Continue Learning
     localStorage.setItem(
@@ -82,6 +91,48 @@ console.log("DONE");
     console.error(error.stack);
 
     throw error;
+  }
+}
+
+const favoriteButton = document.getElementById("favoriteBtn");
+
+if (favoriteButton) {
+  updateFavoriteButton();
+
+  favoriteButton.onclick = () => {
+    if (isFavorite(chapter.title)) {
+      removeFavorite(chapter.title);
+    } else {
+      addFavorite({
+        title: chapter.title,
+
+        subject: chapter.subject,
+
+        url: window.location.pathname + window.location.search,
+      });
+    }
+
+    updateFavoriteButton();
+  };
+}
+
+function updateFavoriteButton() {
+  const button = document.getElementById("favoriteBtn");
+
+  if (!button) return;
+
+  if (isFavorite(chapter.title)) {
+    button.textContent = "★ Remove Favorite";
+
+    button.classList.remove("btn-secondary");
+
+    button.classList.add("btn-primary");
+  } else {
+    button.textContent = "☆ Add to Favorites";
+
+    button.classList.remove("btn-primary");
+
+    button.classList.add("btn-secondary");
   }
 }
 
@@ -285,6 +336,12 @@ function initializeCompletion(subject, chapterId, chapter) {
 
     localStorage.setItem("completedChapters", JSON.stringify(completed));
 
+    fetch(`../data/${subject}/chapters.json`)
+      .then((response) => response.json())
+      .then((chapters) => {
+        unlockNextChapter(subject, chapterId, chapters);
+      });
+
     // Revision Schedule
     const revisionData = JSON.parse(localStorage.getItem("revisionData")) || {};
 
@@ -306,7 +363,9 @@ function initializeCompletion(subject, chapterId, chapter) {
     localStorage.setItem("activity", JSON.stringify(activity));
 
     updateUI(true);
-
+    addXP(50);
+    updateStudyStreak();
+    checkAchievements();
     loadAchievement(subject, chapterId);
   });
 

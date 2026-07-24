@@ -1,102 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapters | JEEVerse</title>
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/typography.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/utilities.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/typography.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/utilities.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
     <header id="navbar"></header>
     <main>
-        <section id="chapter-header" class="chapter-header">
-            <div class="container">
-                <div class="chapter-header-content" id="chapterHeader"></div>
-            </div>
-        </section>
+      <section id="chapter-header" class="chapter-header">
+        <div class="container">
+          <div class="chapter-header-content" id="chapterHeader"></div>
+        </div>
+      </section>
 
-        <section id="overviewSection" class="overview-section">
-            <div class="container">
-                <h2>Overview</h2>
-                <div id="overviewCard"></div>
-            </div>
-        </section>
+      <section id="overviewSection" class="overview-section">
+        <div class="container">
+          <h2>Overview</h2>
+          <div id="overviewCard"></div>
+        </div>
+      </section>
 
-        <section id="chapter-content" class="chapter-content">
-            <div class="container">
+      <section id="chapter-content" class="chapter-content">
+        <div class="container">
+          <div class="chapter-layout">
+            <div id="mainContent" class="main-content"></div>
 
-                <div class="chapter-layout">
+            <aside id="sidebar" class="sidebar">
+              <div class="sidebar-card">
+                <h3>Your Progress</h3>
 
-                    <div id="mainContent" class="main-content">
-
-                    </div>
-
-                    <aside id="sidebar" class="sidebar">
-                        <div class="sidebar-card">
-
-                            <h3>Your Progress</h3>
-
-                            <div class="progress-bar">
-                                <div id="chapterProgress" class="progress-fill"></div>
-                            </div>
-
-                            <p id="progressText">0% Completed</p>
-
-                            <button
-                            id="completeBtn"
-                            class="btn btn-primary">
-                                Mark as Completed
-                            </button>
-
-                            <button id="favoriteBtn" class="btn btn-secondary">
-                                ☆ Add to Favorites
-                            </button>
-
-                        </div>
-
-                        <div class="sidebar-card">
-
-    <h3>🏆 Achievement</h3>
-
-    <div id="achievementBox">
-
-        <p>
-            Complete this chapter and score
-            at least 70% in the quiz.
-        </p>
-
-    </div>
-
-</div>
-
-                        <div class="sidebar-card">
-
-                            <h3>Quick Navigation</h3>
-
-                            <ul class="sidebar-links">
-
-                                <li><a href="#overviewSection">Overview</a></li>
-                                <li><a href="#conceptSection">Key Concepts</a></li>
-                                <li><a href="#formulaSection">Formula Sheet</a></li>
-                                <li><a href="#notesSection">Revision Notes</a></li>
-                                <li><a href="#pyqSection">PYQ Analysis</a></li>
-                            </ul>
-
-                        </div>
-                    </aside>
-
+                <div class="progress-bar">
+                  <div id="chapterProgress" class="progress-fill"></div>
                 </div>
 
-            </div>
-        </section>
+                <p id="progressText">0% Completed</p>
 
+                <button id="completeBtn" class="btn btn-primary">
+                  Mark as Completed
+                </button>
+
+                <button id="favoriteBtn" class="btn btn-secondary">
+                  ⭐ Add to Favorites
+                </button>
+              </div>
+
+              <div class="sidebar-card">
+                <h3>🏆 Achievement</h3>
+
+                <div id="achievementBox">
+                  <p>
+                    Complete this chapter and score at least 70% in the quiz.
+                  </p>
+                </div>
+              </div>
+
+              <div class="sidebar-card">
+                <h3>Quick Navigation</h3>
+
+                <ul class="sidebar-links">
+                  <li><a href="#overviewSection">Overview</a></li>
+                  <li><a href="#conceptSection">Key Concepts</a></li>
+                  <li><a href="#formulaSection">Formula Sheet</a></li>
+                  <li><a href="#notesSection">Revision Notes</a></li>
+                  <li><a href="#pyqSection">PYQ Analysis</a></li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer id="footer"></footer>
@@ -104,7 +85,11 @@
     <script src="../components/navbar.js"></script>
     <script src="../components/footer.js"></script>
     <script src="../js/app.js"></script>
+    <script src="../js/modules/unlockManager.js"></script>
+    <script src="../js/modules/xpManager.js"></script>
+    <script src="../js/modules/streakManager.js"></script>
+    <script src="../js/modules/toast.js"></script>
+    <script src="../js/modules/achievementManager.js"></script>
     <script src="../js/modules/chapter.js"></script>
-    
-</body>
+  </body>
 </html>

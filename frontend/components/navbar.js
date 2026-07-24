@@ -27,6 +27,8 @@ function Navbar() {
 
           <li><a href="${prefix}pages/revision-planner.html">Planner</a></li>
 
+          <li><a href="${prefix}pages/achievements.html">Achievements</a></li>
+
           <li><a href="${prefix}pages/about.html">About</a></li>
 
         </ul>

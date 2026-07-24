@@ -227,12 +227,6 @@ body {
   font-size: 1.1rem;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-}
-
 .stat-card {
   background: var(--surface);
   padding: 35px;
@@ -410,8 +404,6 @@ footer {
 }
 
 .page-header p {
-  max-width: 700px;
-
   margin: auto;
 
   font-size: 1.15rem;
@@ -422,11 +414,14 @@ footer {
 }
 
 .content-card {
-  background: white;
-  border-radius: 20px;
-  padding: 35px;
-  margin-bottom: 35px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 18px;
   box-shadow: var(--shadow-sm);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .content-card h2 {
@@ -582,124 +577,4 @@ footer {
 
 .sidebar-links a:hover {
   color: var(--primary);
-}
-
-/* ==========================
-   Dashboard
-========================== */
-
-.dashboard-header {
-  padding: 80px 0 40px;
-  text-align: center;
-}
-
-.dashboard-header p {
-  color: var(--text-light);
-  margin-top: 15px;
-}
-
-.progress-list {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-.progress-item {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: var(--shadow-sm);
-}
-
-.progress-info {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-
-.continue-learning,
-.recent-activity,
-.subject-progress {
-  padding: 70px 0;
-}
-
-#activityList {
-  min-height: 120px;
-}
-
-/* =====================================
-   Sprint 25 Dashboard Polish
-===================================== */
-
-.dashboard-stats,
-.study-insights,
-.study-heatmap,
-.subject-distribution,
-.favorite-chapters,
-.quiz-performance,
-.recent-activity,
-.continue-learning,
-.subject-progress {
-  padding: 70px 0;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-}
-
-.stats-card {
-  background: #fff;
-  padding: 28px;
-  border-radius: 18px;
-  text-align: center;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  transition: 0.3s;
-}
-
-.stats-card:hover {
-  transform: translateY(-6px);
-}
-
-.stats-card h3 {
-  font-size: 2rem;
-  color: var(--primary);
-  margin-bottom: 10px;
-}
-
-.stats-card p {
-  color: var(--text-light);
-}
-
-.chart-card,
-.heatmap-card,
-.content-card {
-  background: #fff;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-}
-
-#quizChart {
-  width: 100%;
-  height: 350px;
-}
-
-#activityList p {
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
-}
-
-#favoritesList a {
-  display: block;
-  padding: 12px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--primary);
-}
-
-#favoritesList a:hover {
-  background: var(--primary-light);
 }
